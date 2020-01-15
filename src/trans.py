@@ -16,8 +16,9 @@ def __filter(path, ext = ".wav"):
     return collects
 
 def __foreach(files, index, output):
+    total = len(files) - 1
     for (i, f) in enumerate(files):
-        print("index:%s, name:%s." % (i, f))
+        print("<%s-%s> %s." % (i, total, f))
         if i < index:
             print("skip...")
             continue
@@ -39,6 +40,7 @@ def __foreach(files, index, output):
                     print("user quit.")
                     return
                 else:
+                    print("error input! try again...")
                     continue
         except BaseException as exp:
             print("exit by except: %s" % exp)
